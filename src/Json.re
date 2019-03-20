@@ -271,7 +271,7 @@ module Parser = {
                   Buffer.add_char(buffer, '\012');
                   loop(i + 2)
                 | _ =>
-                  Buffer.add_string(buffer, Scanf.unescaped(String.sub(text, i, 2)));
+                  Buffer.add_string(buffer, Scanf.unescaped(Js.String.substrAtMost(~from=i, ~length=2, text)));
                   loop(i + 2)
                 }
               )
